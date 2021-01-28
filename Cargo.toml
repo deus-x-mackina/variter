@@ -1,0 +1,18 @@
+[package]
+name = "variter"
+version = "0.1.0"
+authors = ["Daniel Mack"]
+edition = "2018"
+readme = "README.md"
+categories = ["no-std", "development-tools"]
+keywords = ["enum", "iterator", "variant", "case", "trait"]
+documentation = "https://docs.rs/variter"
+homepage = "https://github.com/deus-x-mackina/variter"
+repository = "https://github.com/deus-x-mackina/variter"
+exclude = [".rustfmt.toml"]
+description = "Declarative macro-derivable trait for iterating over field-less enum type variants"
+license = "MIT OR Apache-2.0"
+
+[features]
+default = ["std"]
+std = []
