@@ -77,13 +77,8 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 #![forbid(unsafe_code, missing_docs)]
 
-#[cfg(not(feature = "std"))]
-extern crate core;
-
 mod core_impls;
 
-#[cfg(feature = "std")]
-extern crate std;
 #[cfg(feature = "std")]
 mod std_impls;
 
