@@ -161,12 +161,12 @@ macro_rules! derive_var_iter {
     // One or more variants
     (
         $(#[$attr:meta])*
-        $vis:vis enum $name:ident { $($cases:ident),+ $(,)? }
+        $vis:vis enum $name:ident { $($cases:ident $(= $disc:expr)?),+ $(,)? }
         $($rest:tt)*
     ) => {
         $(#[$attr])*
         $vis enum $name {
-            $($cases),+
+            $($cases $(= $disc)?),+
         }
 
         #[automatically_derived]
