@@ -1,6 +1,7 @@
-![Crates.io](https://img.shields.io/crates/v/variter)
-
 # VarIter
+
+![Crates.io](https://img.shields.io/crates/v/variter)
+[![unsafe forbidden](https://img.shields.io/badge/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
 
 `variter` is a Rust crate that exports some simple tools for iterating
 over `enum` types with zero or more variants that have no fields.
@@ -33,8 +34,9 @@ See the [module documentation](src/lib.rs) for more information!
 - `foreign_impls` (default): include implementions of `VarIter` on stable `core` types.
 - `std` (default): if `foreign_impls` is turned on, `VarIter` implementations are included for stable `std` types.
 
+## `no_std` Support
 
-Given the simplicity of the crate, `no_std` support can be found through the 
+Given the simplicity of the crate, `no_std` support can be toggled through the
 `default-features = false` flag in your `Cargo.toml` dependency table.
 
 ```toml
@@ -47,10 +49,10 @@ variter = { version = "0.1", default-features = false }
 
 Licensed under either of
 
-* Apache License, Version 2.0
-  ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
-* MIT license
-  ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+- Apache License, Version 2.0
+  ([LICENSE-APACHE](LICENSE-APACHE) or <http://www.apache.org/licenses/LICENSE-2.0>)
+- MIT license
+  ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT>)
 
 at your option.
 
