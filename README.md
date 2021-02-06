@@ -1,6 +1,7 @@
 # VarIter
 
 [![Crates.io](https://img.shields.io/crates/v/variter)](https://crates.io/crates/variter)
+[![Docs.rs](https://docs.rs/variter/badge.svg)](https://docs.rs/variter)
 [![unsafe forbidden](https://img.shields.io/badge/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
 
 `variter` is a Rust crate that exports some simple tools for iterating
