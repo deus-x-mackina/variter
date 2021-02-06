@@ -100,7 +100,7 @@ mod std_impls;
 /// }
 /// use CardSuit::*;
 /// print!("Card suits: ");
-/// for suit in CardSuit::ALL_VARIANTS.iter() {
+/// for suit in CardSuit::ALL_VARIANTS {
 ///     let symbol = match suit {
 ///         Clubs => '\u{2664}',
 ///         Hearts => '\u{2661}',
@@ -134,7 +134,7 @@ pub trait VarIter: Sized + 'static {
 ///         Tails
 ///     }
 /// }
-/// for var in CoinFlip::ALL_VARIANTS.iter() {
+/// for var in CoinFlip::ALL_VARIANTS {
 ///     println!("{:?}", var);
 /// }
 /// ```

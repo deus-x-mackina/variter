@@ -17,7 +17,7 @@ derive_var_iter! {
 }
 
 fn main() {
-    for greeting in Greeting::ALL_VARIANTS.iter() {
+    for greeting in Greeting::ALL_VARIANTS {
         println!("{:?}", greeting);
     }
 }
