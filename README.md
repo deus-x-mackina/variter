@@ -29,6 +29,16 @@ compiler-synthesized `CaseIterable` protocol conformance.
 
 See the [module documentation](src/lib.rs) for more information!
 
+## Usage
+
+Add `variter` as a dependency in your `Cargo.toml` file:
+
+```toml
+[dependencies]
+# ...
+variter = "0.2"
+```
+
 ## Features
 
 - `foreign_impls` (default): include implementions of `VarIter` on stable `core` types.
@@ -42,7 +52,7 @@ Given the simplicity of the crate, `no_std` support can be toggled through the
 ```toml
 [dependencies]
 # ...
-variter = { version = "0.1", default-features = false }
+variter = { version = "0.2", default-features = false }
 ```
 
 ## License
