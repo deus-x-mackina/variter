@@ -52,3 +52,14 @@ fn baz_discriminants_work() {
         }
     }
 }
+
+#[test]
+fn macro_works_in_fn() {
+    derive_var_iter! {
+        enum Foo {}
+        enum Bar { A, B, C }
+    }
+}
+
+#[test]
+fn crate_impls_work() { for _ in core::sync::atomic::Ordering::ALL_VARIANTS {} }
