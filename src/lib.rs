@@ -77,6 +77,9 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 #![forbid(unsafe_code, missing_docs)]
 
+#[cfg(doctest)]
+doc_comment::doctest!("../README.md");
+
 mod core_impls;
 
 #[cfg(feature = "std")]
