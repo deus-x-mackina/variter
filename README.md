@@ -28,7 +28,11 @@ compiler-synthesized `CaseIterable` protocol conformance.
 
 See the [module documentation](src/lib.rs) for more information!
 
-### `no_std` Support
+## Features
+
+- `foreign_impls` (default): include implementions of `VarIter` on stable `core` types.
+- `std` (default): if `foreign_impls` is turned on, `VarIter` implementations are included for stable `std` types.
+
 
 Given the simplicity of the crate, `no_std` support can be found through the 
 `default-features = false` flag in your `Cargo.toml` dependency table.

@@ -80,9 +80,10 @@
 #[cfg(doctest)]
 doc_comment::doctest!("../README.md");
 
+#[cfg(feature = "foreign_impls")]
 mod core_impls;
 
-#[cfg(feature = "std")]
+#[cfg(all(feature = "std", feature = "foreign_impls"))]
 mod std_impls;
 
 /// A trait for field-less `enum`s that gives access to each of its variants.

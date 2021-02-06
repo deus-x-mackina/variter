@@ -14,8 +14,9 @@ description = "Declarative macro-derivable trait for iterating over field-less e
 license = "MIT OR Apache-2.0"
 
 [features]
-default = ["std"]
+default = ["std", "foreign_impls"]
 std = []
+foreign_impls = []
 
 [dev-dependencies]
 doc-comment = "0.3"
