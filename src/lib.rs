@@ -68,7 +68,8 @@
 //!
 //! This crate exports an additional macro [`foreign_derive_var_iter!`] for
 //! implementing [`VarIter`] on foreign types. The crate also implements
-//! [`VarIter`] on stable, field-less enums from [`core`] and [`std`].
+//! [`VarIter`] on stable, field-less enums from [`core`] and [`std`] through
+//! the `foreign_impls` feature flag.
 //!
 //! [`serde`]: https://serde.rs/
 //! [`core]: https://doc.rust-lang.org/stable/core/index.html
