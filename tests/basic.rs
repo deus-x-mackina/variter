@@ -3,6 +3,9 @@ use std::collections::HashSet;
 use variter::{derive_var_iter, VarIter};
 
 derive_var_iter! {
+    @impl_attr {
+        #[doc(hidden)]
+    }
     #[derive(Debug, PartialEq)]
     enum Foo {}
 
