@@ -122,14 +122,23 @@ pub trait VarIter: Sized + 'static {
 /// Automatically derive [`VarIter`] for your field-less `enum`s. Multiple
 /// `enum` declarations can be included inside the macro.
 ///
+/// You may optionally pass attributes to the `impl` block by prefixing your
+/// type definition with `@impl_attr { ATTR... }`, for example `@impl_attr {
+/// #[doc(hidden)] #[cfg(test)] ... }`.
+///
 /// ```
 /// use variter::{derive_var_iter, VarIter};
 /// derive_var_iter! {
+///     @impl_attr {
+///         #[doc(hidden)]
+///     }
 ///     enum Empty {}
+///
 ///     pub enum TwoChoice {
 ///         First,
 ///         Second
 ///     }
+///
 ///     #[derive(Debug)]
 ///     pub(crate) enum CoinFlip {
 ///         Heads,
@@ -144,6 +153,9 @@ pub trait VarIter: Sized + 'static {
 macro_rules! derive_var_iter {
     // No variants at all
     (
+        $(@impl_attr {
+            $(#[$impl_attr:meta])+
+        })?
         $(#[$attr:meta])*
         $vis:vis enum $name:ident {}
         $($rest:tt)*
@@ -152,6 +164,7 @@ macro_rules! derive_var_iter {
         $vis enum $name {}
 
         #[automatically_derived]
+        $($(#[$impl_attr])+)?
         impl $crate::VarIter for $name {
             const ALL_VARIANTS: &'static [Self] = &[];
         }
@@ -161,6 +174,9 @@ macro_rules! derive_var_iter {
 
     // One or more variants
     (
+        $(@impl_attr {
+            $(#[$impl_attr:meta])+
+        })?
         $(#[$attr:meta])*
         $vis:vis enum $name:ident { $($cases:ident $(= $disc:expr)?),+ $(,)? }
         $($rest:tt)*
@@ -171,6 +187,7 @@ macro_rules! derive_var_iter {
         }
 
         #[automatically_derived]
+        $($(#[$impl_attr])+)?
         impl $crate::VarIter for $name {
             const ALL_VARIANTS: &'static [Self] = &[
                 $(Self::$cases),+
@@ -179,11 +196,15 @@ macro_rules! derive_var_iter {
 
         derive_var_iter! { $($rest)* }
     };
+
     () => {};
 }
 
 /// Automatically derive [`VarIter`] for foreign field-less `enums`. Be sure to
-/// include all variants. ## Syntax
+/// include all variants.
+///
+/// ## Syntax
+///
 /// ```text
 /// foreign_derive_var_iter! {
 ///     Typename [] // enum has no variants
@@ -191,17 +212,33 @@ macro_rules! derive_var_iter {
 ///     ...
 /// }
 /// ```
+///
+/// You may optionally pass attributes to the `impl` block by prefixing your
+/// type definition with `@impl_attr { ATTR... }`, for example `@impl_attr {
+/// #[doc(hidden)] #[cfg(test)] ... }`.
 #[macro_export]
 macro_rules! foreign_derive_var_iter {
     // No variants at all
-    ($type:ty [] $($rest:tt)*) => {
+    (
+        $(@impl_attr {
+            $(#[$impl_attr:meta])+
+        })?
+        $type:ty [] $($rest:tt)*
+    ) => {
+        $($(#[$impl_attr])+)?
         impl $crate::VarIter for $type {
             const ALL_VARIANTS: &'static [Self] = &[];
         }
         foreign_derive_var_iter!($($rest)*);
     };
     // One or more variants
-    ($type:ty [$($cases:expr),+ $(,)?] $($rest:tt)*) => {
+    (
+        $(@impl_attr {
+            $(#[$impl_attr:meta])+
+        })?
+        $type:ty [$($cases:expr),+ $(,)?] $($rest:tt)*
+    ) => {
+        $($(#[$impl_attr])+)?
         impl $crate::VarIter for $type {
             const ALL_VARIANTS: &'static [Self] = &[
                 $($cases),+
