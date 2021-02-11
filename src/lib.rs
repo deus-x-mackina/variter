@@ -75,7 +75,7 @@
 //! [`core]: https://doc.rust-lang.org/stable/core/index.html
 //! [`std`]: https://doc.rust-lang.org/stable/std/index.html
 
-#![doc(html_root_url = "https://docs.rs/variter/0.1")]
+#![doc(html_root_url = "https://docs.rs/variter/0.2")]
 #![cfg_attr(not(feature = "std"), no_std)]
 #![forbid(unsafe_code, missing_docs)]
 
