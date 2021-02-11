@@ -9,7 +9,6 @@ keywords = ["enum", "iterator", "variant", "case", "trait"]
 documentation = "https://docs.rs/variter"
 homepage = "https://github.com/deus-x-mackina/variter"
 repository = "https://github.com/deus-x-mackina/variter"
-exclude = [".rustfmt.toml"]
 description = "Declarative macro-derivable trait for iterating over field-less enum type variants"
 license = "MIT OR Apache-2.0"
 
