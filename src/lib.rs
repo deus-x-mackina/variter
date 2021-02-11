@@ -64,7 +64,7 @@
 //!   - Using [`derive_var_iter!`] results in a compile-time error if appiled to
 //!     the above incorrect types (albeit with an unhelpful error message!)
 //!
-//! ## Additionaly...
+//! ## Additionally...
 //!
 //! This crate exports an additional macro [`foreign_derive_var_iter!`] for
 //! implementing [`VarIter`] on foreign types. The crate also implements
