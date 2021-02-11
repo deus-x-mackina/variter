@@ -22,6 +22,13 @@ derive_var_iter! {
         B = 10,
         C,
     }
+
+    /// Yep!
+    enum Documented {
+        /// Also this
+        #[cold]
+        Variant1,
+    }
 }
 
 #[test]
