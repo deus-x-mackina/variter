@@ -178,12 +178,20 @@ macro_rules! derive_var_iter {
             $(#[$impl_attr:meta])+
         })?
         $(#[$attr:meta])*
-        $vis:vis enum $name:ident { $($cases:ident $(= $disc:expr)?),+ $(,)? }
+        $vis:vis enum $name:ident {
+            $(
+                $(#[$varattr:meta])*
+                $cases:ident $(= $disc:expr)?
+            ),+ $(,)?
+        }
         $($rest:tt)*
     ) => {
         $(#[$attr])*
         $vis enum $name {
-            $($cases $(= $disc)?),+
+            $(
+                $(#[$varattr])*
+                $cases $(= $disc)?
+            ),+
         }
 
         #[automatically_derived]
