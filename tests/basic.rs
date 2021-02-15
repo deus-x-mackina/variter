@@ -72,4 +72,4 @@ fn macro_works_in_fn() {
 }
 
 #[test]
-fn crate_impls_work() { for _ in core::sync::atomic::Ordering::ALL_VARIANTS {} }
+fn crate_impls_work() { for _ in std::cmp::Ordering::ALL_VARIANTS {} }
