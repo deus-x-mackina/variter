@@ -61,8 +61,10 @@
 //!     - `structs`
 //!     - `enum`s where any variant contains a field, such as `Case1(i32)` or
 //!       `Case2 { x: usize }`
+//!     - `enum`s marked with the `#[non_exhaustive]` attribute
 //!   - Using [`derive_var_iter!`] results in a compile-time error if appiled to
-//!     the above incorrect types (albeit with an unhelpful error message!)
+//!     the above types (albeit with an unhelpful error message!) *except* for
+//!     `#[non_exhaustive]` `enum`s!
 //!
 //! ## Additionally...
 //!
@@ -209,7 +211,7 @@ macro_rules! derive_var_iter {
 }
 
 /// Automatically derive [`VarIter`] for foreign field-less `enums`. Be sure to
-/// include all variants.
+/// include all variants and that the `enum` is *not* marked with `#[non_exhaustive]`.
 ///
 /// ## Syntax
 ///
